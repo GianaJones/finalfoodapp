@@ -1,0 +1,41 @@
+import sqlite3
+import pandas as pd
+
+# Creating database of all meals in Wellesley Fresh database 
+conn = sqlite3.connect('meals.db')
+
+cursor = conn.cursor()
+cursor.execute("""
+            CREATE TABLE IF NOT EXISTS meals(
+               mealID PRIMARY KEY,
+               name text,
+               description text
+               categoryName text,
+               allergens text, 
+               preferences text,
+               nutritionals text)
+               """)
+
+
+#cursor.execute("""ALTER TABLE meals ADD preferences text""")
+
+#conn.commit
+
+with open("wellesley-meals.csv", "r") as file:
+   all_meals = pd.read_csv(file)
+
+
+all_meals.drop(columns = ["servingSize","servingSizeUOM","calories",
+                                  "fat","caloriesFromFat","saturatedFat",
+                                  "transFat","cholesterol","sodium","carbohydrates",
+                                  "dietaryFiber","sugars","addedSugar","protein"], inplace = True)
+
+
+#all_meals.columns = ["mealID", "name", "description", "categoryName", "allergens", "preferences", "nutritionals"]
+#all_meals.to_sql("meals", conn, if_exists = "replace", index=False)
+
+
+
+
+
+

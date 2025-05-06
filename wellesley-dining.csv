@@ -1,0 +1,26 @@
+location,meal,locationId,mealID
+
+Bao,Breakfast,96,148
+
+Bao,Lunch,96,149
+
+Bao,Dinner,96,312
+
+Bates,Breakfast,95,145
+
+Bates,Lunch,95,146
+
+Bates,Dinner,95,311
+
+Stone Davis,Breakfast,131,261
+
+Stone Davis,Lunch,131,262
+
+Stone Davis,Dinner,131,263
+
+Tower,Breakfast,97,153
+
+Tower,Lunch,97,154
+
+Tower,Dinner,97,310
+
