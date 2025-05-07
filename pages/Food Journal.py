@@ -5,35 +5,9 @@ from myPalate import get_day_menu
 from myPalate import get_meal_and_location
 from myPalate import ids
 from auth import get_google_user_info
-from UserSpecificDBs import init_user_db
-from UserSpecificDBs import init_fj_db
 from datetime import timedelta
 from pages.Dashboard import get_macronutrients
 from pages.Dashboard import get_entry
-
-init_user_db()
-init_fj_db()
-
-conn = sqlite3.connect("food_journal_new.db")
-cursor = conn.cursor()
-# Table for food journal
-cursor.execute('''
-    CREATE TABLE IF NOT EXISTS food_journal_new (
-        entryID INTEGER PRIMARY KEY AUTOINCREMENT,
-        userID INTEGER,
-        mealID TEXT,
-        dining_hall TEXT,
-        date TEXT,
-        liked BOOLEAN,
-        FOREIGN KEY (userID) REFERENCES users(userID),
-        FOREIGN KEY (mealID) REFERENCES meals(mealID)
-    )
-''')
-
-conn.commit()
-conn.close()
-
-
 
 
 st.markdown(
@@ -93,7 +67,7 @@ background-color: #DAD7CD;}
 """, unsafe_allow_html=True,
 ) 
 
-conn = sqlite3.connect("food_journal_new.db")
+conn = sqlite3.connect("palate.db")
 cursor = conn.cursor()
 # Table for food journal
 cursor.execute('''
@@ -115,7 +89,7 @@ conn.close()
 
 #Returns the meal name given the meal id
 def get_meal_name(mealID):
-    conn = sqlite3.connect("meals.db")
+    conn = sqlite3.connect("palate.db")
     cursor = conn.cursor()
 
     cursor.execute('''
@@ -135,7 +109,7 @@ def store_entry(
         dining_hall: int,
         date: str,
         liked: bool):
-    conn = sqlite3.connect("food_journal_new.db")
+    conn = sqlite3.connect("palate.db")
     cursor = conn.cursor()
 
     # Fetch user_id
@@ -215,7 +189,7 @@ with tab1:
             col1.write(name)
             with col2:            
                 #Getting the meals in selections that are already liked
-                conn = sqlite3.connect("food_journal_new.db")
+                conn = sqlite3.connect("palate.db")
                 cursor = conn.cursor()
 
                 cursor.execute("""

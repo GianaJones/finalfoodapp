@@ -11,15 +11,13 @@ from  auth import google_login
 from userProfile import render_user_profile
 from pushDBtoPrivate import download_db_from_github
 from auth import get_google_user_info
-from UserSpecificDBs import init_user_db
-from UserSpecificDBs import init_fj_db
+from UserSpecificDBs import init_db
 
 #download_db_from_github()
 #DEBUG=False
 google_login()
 first_name, last_name, email = get_google_user_info()
-init_user_db()
-init_fj_db()
+init_db()
 
 conn = sqlite3.connect("users_new")
 cursor = conn.cursor()

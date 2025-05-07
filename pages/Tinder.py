@@ -155,7 +155,7 @@ def record_preference(preference):
 #Making a list of all of the meals that are already liked in the database
 def add_liked_meal(meal):  # 'meal' is the parameter that will receive 'current_meal'
     print(f"add_liked_meal called with meal: {meal}")
-    conn = sqlite3.connect('food_journal_new.db')
+    conn = sqlite3.connect('palate.db')
     cursor = conn.cursor()
     user_id = meal.get('userID')  # Assuming the key is 'userID'
     meal_id = meal.get('mealID')      # Assuming the key for meal ID is 'id'

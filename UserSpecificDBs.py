@@ -1,9 +1,9 @@
 import sqlite3
+import pandas as pd
 #from pushDBtoPrivate import get_db_path
 
-DB_NAME = "users_new"
-DB_NAME2 = "food_journal_new"
-def init_user_db():
+DB_NAME = "palate.db"
+def init_db():
     conn = sqlite3.connect(DB_NAME)
     cursor = conn.cursor()
 
@@ -18,13 +18,7 @@ def init_user_db():
             restrictions TEXT    
         )
     ''')
-    conn.commit()
-    conn.close()
-    
-    
-def init_fj_db():   
-    conn = sqlite3.connect(DB_NAME2)
-    cursor = conn.cursor()
+
     # Table for food journal
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS food_journal_new (
@@ -38,6 +32,32 @@ def init_fj_db():
             FOREIGN KEY (mealID) REFERENCES meals(mealID)
         )
     ''')
+
+    #Table for all Wellesley Fresh meals
+    cursor.execute("""
+            CREATE TABLE IF NOT EXISTS meals(
+               mealID PRIMARY KEY,
+               name text,
+               description text
+               categoryName text,
+               allergens text, 
+               preferences text,
+               nutritionals text)
+               """)
+    
+    #Populating meals table
+    with open("wellesley-meals.csv", "r") as file:
+        all_meals = pd.read_csv(file)
+
+    all_meals.drop(columns = ["servingSize","servingSizeUOM","calories",
+                                  "fat","caloriesFromFat","saturatedFat",
+                                  "transFat","cholesterol","sodium","carbohydrates",
+                                  "dietaryFiber","sugars","addedSugar","protein"], inplace = True)
+
+
+    all_meals.columns = ["mealID", "name", "description", "categoryName", "allergens", "preferences", "nutritionals"]
+    all_meals.to_sql("meals", conn, if_exists = "replace", index=False)
+
 
     conn.commit()
     conn.close()

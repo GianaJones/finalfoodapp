@@ -118,7 +118,7 @@ data = {
 
 #Given a mealID will return a dictionary of macronutrients for that meal
 def get_macronutrients(meal):
-    conn = sqlite3.connect("meals.db")
+    conn = sqlite3.connect("palate.db")
     cursor = conn.cursor()
 
     cursor.execute("""
@@ -132,7 +132,7 @@ def get_macronutrients(meal):
     return ast.literal_eval(nutritionals[0])
 
 def get_entry(userID, date):
-    conn = sqlite3.connect("food_journal_new.db")
+    conn = sqlite3.connect("palate.db")
     cursor = conn.cursor()
 
     cursor.execute("""
