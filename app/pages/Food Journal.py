@@ -1,9 +1,9 @@
 import streamlit as st
 import sqlite3
 from datetime import datetime
-from myPalate import get_day_menu
-from myPalate import get_meal_and_location
-from myPalate import ids
+from app.myPalate import get_day_menu
+from app.myPalate import get_meal_and_location
+from app.myPalate import ids
 from auth import get_google_user_info
 from UserSpecificDBs import init_user_db
 from UserSpecificDBs import init_fj_db

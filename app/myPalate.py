@@ -13,9 +13,6 @@ from pushDBtoPrivate import download_db_from_github
 from auth import get_google_user_info
 from UserSpecificDBs import init_user_db
 from UserSpecificDBs import init_fj_db
-import os
-
-st.write("Pages found:", os.listdir("pages"))
 
 #download_db_from_github()
 #DEBUG=False
