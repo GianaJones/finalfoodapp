@@ -8,8 +8,8 @@ from auth import get_google_user_info
 from UserSpecificDBs import init_user_db
 from UserSpecificDBs import init_fj_db
 from datetime import timedelta
-from Dashboard import get_macronutrients
-from Dashboard import get_entry
+from pages.Dashboard import get_macronutrients
+from pages.Dashboard import get_entry
 
 init_user_db()
 init_fj_db()
