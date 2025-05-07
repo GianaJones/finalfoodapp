@@ -19,7 +19,7 @@ cursor.execute("""
 
 #cursor.execute("""ALTER TABLE meals ADD preferences text""")
 
-#conn.commit
+conn.commit()
 
 with open("wellesley-meals.csv", "r") as file:
    all_meals = pd.read_csv(file)
@@ -31,8 +31,8 @@ all_meals.drop(columns = ["servingSize","servingSizeUOM","calories",
                                   "dietaryFiber","sugars","addedSugar","protein"], inplace = True)
 
 
-#all_meals.columns = ["mealID", "name", "description", "categoryName", "allergens", "preferences", "nutritionals"]
-#all_meals.to_sql("meals", conn, if_exists = "replace", index=False)
+all_meals.columns = ["mealID", "name", "description", "categoryName", "allergens", "preferences", "nutritionals"]
+all_meals.to_sql("meals", conn, if_exists = "replace", index=False)
 
 
 
