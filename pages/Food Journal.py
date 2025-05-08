@@ -272,7 +272,7 @@ with tab2:
         st.header("Meal")
         for i in range(len(data)):
             try:
-                for item in data[i]["Meal"]:
+                for item in data[i]["Meal"][0]:
                     if item:
                         st.write(item)
                     elif item is None:
