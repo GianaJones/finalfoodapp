@@ -227,11 +227,14 @@ with tab2:
         calories = []
         meals = []
         try:
-            
             meal = get_entry(user_id, date)
+            st.write(meal)
             calories_add = get_macronutrients['calories']
+            st.write(calories_add)
             meals.append(get_meal_name(meal))
+            st.write(meals)
             calories.append(calories_add)
+            st.write(calories)
             data= {
                 'Day': date,
                 'Meal': meals,
