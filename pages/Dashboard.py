@@ -140,7 +140,7 @@ def get_entry(userID, date):
     FROM food_journal_new
     WHERE userID = ? AND date = ?
     """, (userID, date))
-    to_return = cursor.fetchone()
+    to_return = cursor.fetchall()
     st.write(date)
     st.write(to_return)
     return to_return
