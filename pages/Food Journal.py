@@ -257,9 +257,9 @@ with tab2:
     with col1:
         st.header("Date")
         try:
-            for item in data["Day"]:
+            for item in data:
                 if item:
-                    st.write(item)
+                    st.write(item["Day"])
                 else:
                     st.write("No entry.")
         except:
