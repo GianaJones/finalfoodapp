@@ -226,8 +226,8 @@ with tab2:
         first_name, last_name, user_id = get_google_user_info()
         calories = []
         meals = []
+        meals = get_entry(user_id, date)
         try:
-            meals = get_entry(user_id, date)
             for meal in meals:
                 st.write(meal[0])
                 calories_add = get_macronutrients(meal[0])['calories']
