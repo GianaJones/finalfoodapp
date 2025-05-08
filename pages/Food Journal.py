@@ -226,12 +226,12 @@ with tab2:
         first_name, last_name, user_id = get_google_user_info()
         calories = []
         meals = []
-        meals = get_entry(user_id, date)
+        meal = get_entry(user_id, date)
         #st.write(meals)
         try:
-            st.write(meals[0])
-            calories_add = get_macronutrients(meals[0])['calories']
-            meals.append(get_meal_name(meals[0]))
+            st.write(meal[0])
+            calories_add = get_macronutrients(meal[0])['calories']
+            meals.append(get_meal_name(meal[0]))
             calories.append(calories_add)
             data= {
                 'Day': date,
