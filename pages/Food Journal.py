@@ -244,7 +244,8 @@ with tab2:
     col1, col2, col3 = st.columns(3)
 
     week_days = [date + timedelta(days=-i) for i in range(7)]
-    week_days = [item.strftime("%Y-%m-%d") + "T00:00:00" for item in week_days]
+    week_days = [item.strftime("%Y-%m-%d") for item in week_days]
+    #week_days = [item.strftime("%Y-%m-%d") + "T00:00:00" for item in week_days]
 
     data = []
 
