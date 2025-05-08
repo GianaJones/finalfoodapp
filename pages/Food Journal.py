@@ -227,7 +227,7 @@ with tab2:
         calories = []
         meals = []
         meals = get_entry(user_id, date)
-        st.write(meals)
+        #st.write(meals)
         try:
             st.write(meals[0])
             calories_add = get_macronutrients(meals[0])['calories']
