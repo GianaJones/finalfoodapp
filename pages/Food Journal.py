@@ -252,7 +252,7 @@ with tab2:
     data = []
 
     for day in week_days:
-        st.write(get_calories(day))
+        #st.write(get_calories(day))
         data.append(get_calories(day))
     
     st.write(data)
