@@ -227,7 +227,7 @@ with tab2:
         calories = []
         meals = []
         try:
-            meal = get_entry(user_id, date)
+            meal = get_entry(user_id, date)[0]
             calories_add = get_macronutrients['calories']
             meals.append(get_meal_name(meal))
             calories.append(calories_add)
