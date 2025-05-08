@@ -136,7 +136,7 @@ def get_entry(userID, date):
     cursor = conn.cursor()
 
     cursor.execute("""
-    SELECT (mealID) 
+    SELECT mealID
     FROM food_journal_new
     WHERE userID = ? AND date = ?
     """, (userID, date))
