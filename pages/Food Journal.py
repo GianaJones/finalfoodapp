@@ -272,7 +272,7 @@ with tab2:
                 for item in data[i]["Meal"]:
                     if item:
                         st.write(item)
-                    else:
+                    elif item is None:
                         st.write("No entry.")
             except:
                 st.error("No data.")
@@ -284,7 +284,7 @@ with tab2:
                 for item in data[i]["Calories"]:
                     if item:
                         st.write(item)
-                    else:
+                    elif item is None:
                         st.write("No entry.")
             except:
-                st.error("No data.")
+                st.write("No data.")
