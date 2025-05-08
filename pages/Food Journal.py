@@ -227,6 +227,7 @@ with tab2:
         calories = []
         meals = []
         meals = get_entry(user_id, date)
+        st.write(meals)
         try:
             for meal in meals:
                 st.write(meal[0])
