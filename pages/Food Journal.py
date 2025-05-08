@@ -229,16 +229,15 @@ with tab2:
         meals = get_entry(user_id, date)
         st.write(meals)
         try:
-            for meal in meals:
-                st.write(meal[0])
-                calories_add = get_macronutrients(meal[0])['calories']
-                meals.append(get_meal_name(meal[0]))
-                calories.append(calories_add)
-                data= {
-                    'Day': date,
-                    'Meal': meals,
-                    'Calories': calories
-                }
+            st.write(meal[0])
+            calories_add = get_macronutrients(meal[0])['calories']
+            meals.append(get_meal_name(meal[0]))
+            calories.append(calories_add)
+            data= {
+                'Day': date,
+                'Meal': meals,
+                'Calories': calories
+            }
             return data
         except:
             st.error("No data in Food Journal. Please make sure you are signed in!")
