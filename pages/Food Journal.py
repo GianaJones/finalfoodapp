@@ -240,7 +240,8 @@ with tab2:
             }
             return data
         except:
-            st.error("No data in Food Journal. Please make sure you are signed in!")
+            st.write("")
+            #st.error("No data in Food Journal. Please make sure you are signed in!")
 
     date = st.date_input("Date: ")    
     col1, col2, col3 = st.columns(3)
