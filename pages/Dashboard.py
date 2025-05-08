@@ -141,6 +141,7 @@ def get_entry(userID, date):
     WHERE userID = ? AND date = ?
     """, (userID, date))
     to_return = cursor.fetchone()
+    st.write(date)
     st.write(to_return)
     return to_return
 
