@@ -256,7 +256,7 @@ with tab2:
         #st.write(get_calories(day))
         data.append(get_calories(day))
     
-    st.write(data)
+    #st.write(data)
 
     with col1:
         st.header("Date")
