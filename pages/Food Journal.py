@@ -229,6 +229,7 @@ with tab2:
         try:
             meals = get_entry(user_id, date)
             for meal in meals:
+                st.write(meal)
                 calories_add = get_macronutrients(meal)['calories']
                 meals.append(get_meal_name(meal))
                 calories.append(calories_add)
@@ -253,7 +254,7 @@ with tab2:
     for day in week_days:
         data.append(get_calories(day))
     
-    #st.write(data)
+    st.write(data)
 
     with col1:
         st.header("Date")

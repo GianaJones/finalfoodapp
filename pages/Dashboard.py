@@ -156,13 +156,14 @@ def get_macro_data():
     first_name, last_name, user_id = get_google_user_info()
     carbs, protein, fats = [], [], []
     for day in week_days:
-        meal = get_entry(user_id, day)
-        carbs = get_macronutrients(meal)['carbs']
-        protein = get_macronutrients(meal)['protein']
-        fats = get_macronutrients(meal)['fat']
-        carbs.append(carbs)
-        protein.append(protein)
-        fats.append(fats)
+        meals = get_entry(user_id, day)
+        for meal in meals:
+            carbs = get_macronutrients(meal)['carbs']
+            protein = get_macronutrients(meal)['protein']
+            fats = get_macronutrients(meal)['fat']
+            carbs.append(carbs)
+            protein.append(protein)
+            fats.append(fats)
     data = {
       'Day': week_days,
       'Carbs': carbs,
