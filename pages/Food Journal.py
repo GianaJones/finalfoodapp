@@ -251,6 +251,8 @@ with tab2:
 
     for day in week_days:
         data.append(get_calories(day))
+    
+    st.write(data)
 
     with col1:
         st.header("Date")
