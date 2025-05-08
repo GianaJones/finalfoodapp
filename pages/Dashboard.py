@@ -150,7 +150,7 @@ def get_macro_data():
     formatted_date = today.strftime("%Y-%m-%d") 
     week_days = [(today - timedelta(days=i)).strftime("%Y-%m-%d") for i in range(7)]
 
-    week_days = [str(item) + "T00:00:00" for item in week_days]
+    week_days = [str(item) for item in week_days]
     st.write(week_days)
 
     first_name, last_name, user_id = get_google_user_info()
