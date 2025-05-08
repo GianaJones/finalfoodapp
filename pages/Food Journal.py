@@ -250,20 +250,18 @@ with tab2:
     data = []
 
     for day in week_days:
-        st.write(day)
         data.append(get_calories(day))
 
     with col1:
         st.header("Date")
-        for i in range(len(data)):
-            try:
-                for item in data[i]["Day"]:
-                    if item:
-                        st.write(item)
-                    else:
-                        st.write("No entry.")
-            except:
-                st.error("No data.")
+        try:
+            for item in data["Day"]:
+                if item:
+                    st.write(item)
+                else:
+                    st.write("No entry.")
+        except:
+            st.error("No data.")
     
     with col2:
         st.header("Meal")
