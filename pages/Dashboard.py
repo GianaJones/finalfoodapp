@@ -141,8 +141,8 @@ def get_entry(userID, date):
     WHERE userID = ? AND date = ?
     """, (userID, date))
     to_return = cursor.fetchall()
-    st.write(date)
-    st.write(to_return)
+    #st.write(date)
+    #st.write(to_return)
     return to_return
 
 def get_macro_data():
