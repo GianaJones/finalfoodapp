@@ -275,7 +275,7 @@ with tab2:
                     elif item is None:
                         st.write("No entry.")
             except:
-                st.error("No data.")
+                st.write("No entry.")
 
     with col3:
         st.header("Calories")
@@ -287,4 +287,4 @@ with tab2:
                     elif item is None:
                         st.write("No entry.")
             except:
-                st.write("No data.")
+                st.write("No entry.")
