@@ -18,12 +18,16 @@ def get_food_fact():
         fact = data.get('text', "No food fact available today.")
         # Attempt to filter for food-related facts (this might not be perfect)
         keywords = ["food", "eat", "cook", "ingredient", "fruit", "vegetable", "meat", "dairy", "grain", "spice"]
-        if any(keyword in fact.lower() for keyword in keywords):
-            return f"Did you know?  {fact}"
-        else:
-            # If not clearly food-related, try again (you might want to limit retries)
-            time.sleep(3)
-            return get_food_fact()
+        retries = 3
+        attempt = 0
+        for attempt in range(retries):
+            if any(keyword in fact.lower() for keyword in keywords):
+                return f"Did you know?  {fact}"
+            else:
+                # If not clearly food-related, try again (you might want to limit retries)
+                time.sleep(3)
+                attempt += 1
+                return get_food_fact()
     except requests.exceptions.RequestException as e:
         return f"Error fetching food fact: {e}"
     except json.JSONDecodeError:
@@ -162,8 +166,9 @@ def add_liked_meal(meal):  # 'meal' is the parameter that will receive 'current_
 
     if user_id is not None and meal_id is not None:
         cursor.execute("""
-            INSERT INTO food_journal_new (userID, mealID, liked)
-            VALUES (?, ?, 1)
+            INSERT INTO food_journal_new liked
+            WHERE userID = ? AND mealID = ?
+            VALUES (1, ?, ?)
         """, (user_id, meal_id))
         conn.commit()
         print(f"Successfully added meal ID {meal_id} for user {user_id} to food_journal_new.")
